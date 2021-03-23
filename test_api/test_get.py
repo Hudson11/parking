@@ -10,7 +10,7 @@ assert result.status_code == 200
 
 # Testing return by id
 # Case 1 -> for existing record
-result_by_id = requests.get(f'{base_url}/parking/6/')
+result_by_id = requests.get(f'{base_url}/parking/1/')
 assert result_by_id.status_code == 200
 # Case 2 -> for not existent record
 result_by_id = requests.get(f'{base_url}/parking/300/')

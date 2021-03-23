@@ -50,14 +50,14 @@ result = requests.put(f'{base_url}/parking/1/', params_8)
 assert result.status_code == 200
 
 # check_out pay = False
-result = requests.put(f'{base_url}/parking/8/out/')
+result = requests.put(f'{base_url}/parking/1/out/')
 assert result.status_code == 200
 # check_out pay = True
-result = requests.put(f'{base_url}/parking/1/out/')
+result = requests.put(f'{base_url}/parking/2/out/')
 assert result.status_code == 200
 
 # pay
-result = requests.put(f'{base_url}/parking/8/pay/')
+result = requests.put(f'{base_url}/parking/2/pay/')
 assert result.status_code == 200
 # pay
 result = requests.put(f'{base_url}/parking/1/pay/')
@@ -65,8 +65,8 @@ assert result.status_code == 200
 
 # Checking if minutes have been added after check_out
 # check_out = True
-result = requests.get(f'{base_url}/parking/1/')
+result = requests.get(f'{base_url}/parking/2/')
 assert result.json()['minutes'] != ''
 # check_out = False
-result = requests.get(f'{base_url}/parking/9/')
+result = requests.get(f'{base_url}/parking/1/')
 assert result.json()['minutes'] == ''
