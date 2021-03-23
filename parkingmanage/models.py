@@ -25,6 +25,7 @@ class Parking(Base):
     check_out = models.BooleanField(default=False, editable=False)
     pay = models.BooleanField(default=False, editable=False)
     minutes = models.CharField(default='', max_length=50, editable=False)
+    reservation = models.CharField(default='', max_length=50, editable=False)
 
     class Meta:
         verbose_name = 'Parking'
@@ -32,4 +33,4 @@ class Parking(Base):
         ordering = ['id']
 
     def __str__(self):
-        return f'plate {self.plate} Check-out {self.check_out} pay: {self.pay}'
+        return f'plate {self.plate} Check-out {self.check_out} pay: {self.pay} reservation: {self.reservation}'
